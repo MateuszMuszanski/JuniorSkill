@@ -1,0 +1,16 @@
+C:\Users\Mateusz\source\repos\JuniorSkill\JuniorSkill\bin\Debug\net5.0\JuniorSkill.exe
+C:\Users\Mateusz\source\repos\JuniorSkill\JuniorSkill\bin\Debug\net5.0\JuniorSkill.deps.json
+C:\Users\Mateusz\source\repos\JuniorSkill\JuniorSkill\bin\Debug\net5.0\JuniorSkill.runtimeconfig.json
+C:\Users\Mateusz\source\repos\JuniorSkill\JuniorSkill\bin\Debug\net5.0\JuniorSkill.runtimeconfig.dev.json
+C:\Users\Mateusz\source\repos\JuniorSkill\JuniorSkill\bin\Debug\net5.0\JuniorSkill.dll
+C:\Users\Mateusz\source\repos\JuniorSkill\JuniorSkill\bin\Debug\net5.0\ref\JuniorSkill.dll
+C:\Users\Mateusz\source\repos\JuniorSkill\JuniorSkill\bin\Debug\net5.0\JuniorSkill.pdb
+C:\Users\Mateusz\source\repos\JuniorSkill\JuniorSkill\obj\Debug\net5.0\JuniorSkill.csproj.AssemblyReference.cache
+C:\Users\Mateusz\source\repos\JuniorSkill\JuniorSkill\obj\Debug\net5.0\JuniorSkill.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mateusz\source\repos\JuniorSkill\JuniorSkill\obj\Debug\net5.0\JuniorSkill.AssemblyInfoInputs.cache
+C:\Users\Mateusz\source\repos\JuniorSkill\JuniorSkill\obj\Debug\net5.0\JuniorSkill.AssemblyInfo.cs
+C:\Users\Mateusz\source\repos\JuniorSkill\JuniorSkill\obj\Debug\net5.0\JuniorSkill.csproj.CoreCompileInputs.cache
+C:\Users\Mateusz\source\repos\JuniorSkill\JuniorSkill\obj\Debug\net5.0\JuniorSkill.dll
+C:\Users\Mateusz\source\repos\JuniorSkill\JuniorSkill\obj\Debug\net5.0\ref\JuniorSkill.dll
+C:\Users\Mateusz\source\repos\JuniorSkill\JuniorSkill\obj\Debug\net5.0\JuniorSkill.pdb
+C:\Users\Mateusz\source\repos\JuniorSkill\JuniorSkill\obj\Debug\net5.0\JuniorSkill.genruntimeconfig.cache
