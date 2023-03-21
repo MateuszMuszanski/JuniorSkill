@@ -16,9 +16,5 @@ namespace JuniorSkill
         protected string FileName { get; set; }
         protected int FileSize { get; set; }
         protected DateTime FileCreatetOn { get; set; }
-        void dupa()
-        {
-            FileName = "";
-        }
     }
 }

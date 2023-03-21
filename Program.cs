@@ -9,6 +9,7 @@ namespace JuniorSkill
             Console.WriteLine("Hello World!");
             Console.WriteLine();
 
+            // Word counting
             Console.WriteLine( SeparateStringBySpace.HowManyWords("") ); 
 
             // Inheritance
@@ -25,7 +26,7 @@ namespace JuniorSkill
             NullAble();
 
             //String and StrinBuilder
-            StaticAbstractClassStrings();
+            StaticClassStrings();
 
             //Casting and Parsing
             CastingAndConvertion.ReturnTwoValuesIfZero(); // static
@@ -35,9 +36,8 @@ namespace JuniorSkill
             ShowEnum();
 
             //
-
         }
-        static public void StaticAbstractClassStrings()
+        static public void StaticClassStrings()
         {
             Console.WriteLine("Static");
             Console.WriteLine(Strings.StaticShow());
