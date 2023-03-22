@@ -1,4 +1,7 @@
-﻿using System;
+﻿using JuniorSkill.Polymorphism;
+using JuniorSkill.Polymorphism.MethodOverriding;
+using System;
+using System.Collections.Generic;
 
 namespace JuniorSkill
 {
@@ -7,6 +10,10 @@ namespace JuniorSkill
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+            Console.WriteLine();
+
+            //Polymorphism
+            Polymporph();
             Console.WriteLine();
 
             // Word counting
@@ -31,7 +38,6 @@ namespace JuniorSkill
             //Casting and Parsing
             CastingAndConvertion.ReturnTwoValuesIfZero(); // static
             CastingAndConvertion castingAndConvertion = new CastingAndConvertion(); // dynamic
-
             //Enum
             ShowEnum();
 
@@ -50,6 +56,9 @@ namespace JuniorSkill
 
             Console.WriteLine("StringBuilder");
             Console.WriteLine(strings.StringBuilder("Mateusz"));
+            Console.WriteLine();
+
+            strings.WritePath();
             Console.WriteLine();
         }
         static public void ShowEnum()
@@ -85,10 +94,10 @@ namespace JuniorSkill
                 }
                 Console.WriteLine(words[a + 1]);
             }
-            catch (IndexOutOfRangeException e)
+            catch (IndexOutOfRangeException )
             {
                 Console.WriteLine("You went out of range");
-            }catch(Exception e)
+            }catch(Exception )
             {
                 Console.WriteLine("Something went wrong");
             }finally
@@ -113,6 +122,35 @@ namespace JuniorSkill
             excelFile.GenerateReport();
             WordFile wordFile = new WordFile("word_file", 2, new DateTime(2023, 02, 11));
             wordFile.Print();
+        }
+        public static void Polymporph()
+        {
+            List<IShape> shapes = new List<IShape>();
+
+            Rectangle rectangle = new Rectangle { Length = 5, Width = 5 };
+            Circle circle = new Circle { Radius = 5 };
+
+            shapes.Add(rectangle);
+            shapes.Add(circle);
+
+            foreach (var item in shapes)
+            {
+                double result = item.CalculateArea();
+
+                Console.WriteLine(result);
+            }
+            Console.WriteLine();
+
+            Animal animal;
+            animal = new Cat();
+            animal.AnimalGoes(animal.MakeSound());
+
+            animal = new Lion();
+            animal.AnimalGoes(animal.MakeSound());
+
+            animal = new Monkey();
+            animal.AnimalGoes(animal.MakeSound());
+            Console.WriteLine();
         }
     }
 }

@@ -22,7 +22,11 @@ namespace JuniorSkill
 
             return staticInterpolated;
         }
-
+        public void WritePath()
+        {
+            Console.WriteLine(text);
+            Console.WriteLine(folderLocation);
+        }
         public string Show()
         {
             string name = "Mateusz";
