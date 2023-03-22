@@ -1,5 +1,6 @@
 ﻿using JuniorSkill.Polymorphism;
 using JuniorSkill.Polymorphism.MethodOverriding;
+using JuniorSkill.Strategy;
 using System;
 using System.Collections.Generic;
 
@@ -151,6 +152,16 @@ namespace JuniorSkill
             animal = new Monkey();
             animal.AnimalGoes(animal.MakeSound());
             Console.WriteLine();
+        }
+        public static void Strategy()
+        {
+            Paladin paladin = new Paladin(6,5,5,3);
+
+            AttackAction attackAction = new AttackAction();
+            DefendAction defendAction = new DefendAction();
+
+            Combat combat = new Combat(attackAction);
+            combat = new Combat(defendAction);
         }
     }
 }
