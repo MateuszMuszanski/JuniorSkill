@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace JuniorSkill.Strategy
 {
-    class DefendAction : IAction
+    class AttackAction : IAction
     {
         public void PerformAction(Champion champion)
         {
-            champion.Defend();
+            Console.WriteLine($"{champion.GetType().Name} dealt {champion.Attack()}");
         }
     }
 }

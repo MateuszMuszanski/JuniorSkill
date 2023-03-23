@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace JuniorSkill.Strategy
 {
-    interface AttackAction
+    public interface IAction
     {
+        void PerformAction(Champion champion);
     }
 }

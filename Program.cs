@@ -13,6 +13,10 @@ namespace JuniorSkill
             Console.WriteLine("Hello World!");
             Console.WriteLine();
 
+            //Strategy
+            Strategy();
+            Console.WriteLine();
+
             //Polymorphism
             Polymporph();
             Console.WriteLine();
@@ -47,11 +51,11 @@ namespace JuniorSkill
         static public void StaticClassStrings()
         {
             Console.WriteLine("Static");
-            Console.WriteLine(Strings.StaticShow());
+            Console.WriteLine(StringAndStringBuilder.StaticShow());
             Console.WriteLine();
 
             Console.WriteLine("Dynamic");
-            Strings strings = new Strings();
+            StringAndStringBuilder strings = new StringAndStringBuilder();
             Console.WriteLine(strings.Show());
             Console.WriteLine();
 
@@ -156,12 +160,16 @@ namespace JuniorSkill
         public static void Strategy()
         {
             Paladin paladin = new Paladin(6,5,5,3);
+            Mage mage = new Mage(3,8,4,3);
 
             AttackAction attackAction = new AttackAction();
             DefendAction defendAction = new DefendAction();
 
             Combat combat = new Combat(attackAction);
+            combat.DoAction(paladin);
+
             combat = new Combat(defendAction);
+            combat.DoAction(mage);
         }
     }
 }

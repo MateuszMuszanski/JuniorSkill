@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace JuniorSkill.Strategy
 {
-    class Mage : ChampionActions
+    class Hunter : Champion
     {
-        public override void Attack()
+        public override double Attack()
         {
-
+            return attackPower;
         }
 
-        public override void Defend()
+        public override double Defend()
         {
-
+            return damageReduction;
         }
     }
 }

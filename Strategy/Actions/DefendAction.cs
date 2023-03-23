@@ -6,16 +6,11 @@ using System.Threading.Tasks;
 
 namespace JuniorSkill.Strategy
 {
-    class Hunter
+    class DefendAction : IAction
     {
-        public override void Attack()
+        public void PerformAction(Champion champion)
         {
-
-        }
-
-        public override void Defend()
-        {
-
+            Console.WriteLine($"{champion.GetType().Name} blocked {champion.Defend()}");
         }
     }
 }

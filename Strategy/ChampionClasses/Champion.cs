@@ -6,13 +6,17 @@ using System.Threading.Tasks;
 
 namespace JuniorSkill.Strategy
 {
-    public abstract class ChampionActions
+    public abstract class Champion
     {
         public int Strength { get; set; }
         public int Intelligence { get; set; }
         public int Durability { get; set; }
         public int Agility { get; set; }
-        public abstract void Attack();
-        public abstract void Defend();
+
+        public abstract double Attack();
+        public abstract double Defend();
+
+        protected double attackPower;
+        protected double damageReduction;
     }
 }

@@ -9,7 +9,7 @@ namespace JuniorSkill
     /// <summary>
     /// Method that shows some crucial things about strings
     /// </summary>
-    class Strings
+    class StringAndStringBuilder
     {
         string text = "hello \"world\"";
         string folderLocation = @"c:\windows";
