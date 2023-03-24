@@ -1,4 +1,5 @@
 ﻿using JuniorSkill.DependencyInjection;
+using JuniorSkill.LINQ;
 using JuniorSkill.Polymorphism;
 using JuniorSkill.Polymorphism.MethodOverriding;
 using JuniorSkill.Strategy;
@@ -14,6 +15,9 @@ namespace JuniorSkill
         {
             Console.WriteLine("Hello World!");
             Console.WriteLine();
+
+            //Lambda
+            LambdaExpresionAndLINQ();
 
             //Dependency injection
             Injection();
@@ -189,7 +193,7 @@ namespace JuniorSkill
             Console.WriteLine();
 
         }
-        public static void LambdaExpresion()
+        public static void LambdaExpresionAndLINQ()
         {
             Dictionary<string, string> symbolNation = new Dictionary<string, string>();
             symbolNation.Add("PL", "Poland");
@@ -197,6 +201,24 @@ namespace JuniorSkill
             symbolNation.Add("US", "United States");
 
             string country = symbolNation.FirstOrDefault(x => x.Key == "PL").Value;
+            Console.WriteLine(country);
+
+            List<Person> people = Employee.GetPeople();
+
+
+            bool IsBornAfter1999(Person person)
+            {
+                return person.dateOfBirth.Year > 1999;
+            }
+            //using delegate
+            people.RemoveAll(IsBornAfter1999);
+            //using lambda
+            people.RemoveAll(p => p.FirstName == "Mateusz");
+
+            foreach (var item in people.Where(p => p.dateOfBirth < new DateTime(1996, 6, 12)))
+            {
+                Console.WriteLine($"{item.FirstName} {item.LastName} was born before May 10th, 1996.");
+            }
         }
     }
 }

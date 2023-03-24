@@ -12,7 +12,7 @@ namespace JuniorSkill
         public string FirstName;
         public string LastName;
 
-        private DateTime dateOfBirth;
+        public DateTime dateOfBirth;
 
         private string contactNumber;
 
@@ -30,7 +30,7 @@ namespace JuniorSkill
 
         public Person(string firstName, string lastName)
         {
-            Console.WriteLine("First ctor");
+            Console.WriteLine("Created Person");
             FirstName = firstName;
             LastName = lastName;
             objCount++;
@@ -38,7 +38,7 @@ namespace JuniorSkill
 
         public Person(DateTime dateOfBirth, string firstName, string lastName) : this(firstName, lastName)
         {
-            Console.WriteLine("Second ctor");
+            //Console.WriteLine("Second ctor");
             SetDateOfBirth(dateOfBirth);
         }
         protected void SetDateOfBirth(DateTime dateTime)
