@@ -6,7 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DependencyInjection\" />
+    <Folder Include="DependencyInjection\WeatherForecast\" />
+    <Folder Include="LambdaExpression\" />
   </ItemGroup>
 
 </Project>

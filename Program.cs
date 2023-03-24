@@ -1,8 +1,10 @@
-﻿using JuniorSkill.Polymorphism;
+﻿using JuniorSkill.DependencyInjection;
+using JuniorSkill.Polymorphism;
 using JuniorSkill.Polymorphism.MethodOverriding;
 using JuniorSkill.Strategy;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace JuniorSkill
 {
@@ -13,6 +15,9 @@ namespace JuniorSkill
             Console.WriteLine("Hello World!");
             Console.WriteLine();
 
+            //Dependency injection
+            Injection();
+            
             //Strategy
             Strategy();
             Console.WriteLine();
@@ -170,6 +175,28 @@ namespace JuniorSkill
 
             combat = new Combat(defendAction);
             combat.DoAction(mage);
+        }
+        public static void Injection()
+        {
+            ConsoleLogger consoleLogger = new ConsoleLogger();
+            EmailLogger emailLogger = new EmailLogger();
+
+            FoodService foodService = new FoodService(consoleLogger);
+            foodService.WriteMenu();
+
+            foodService = new FoodService(emailLogger);
+            foodService.WriteMenu();
+            Console.WriteLine();
+
+        }
+        public static void LambdaExpresion()
+        {
+            Dictionary<string, string> symbolNation = new Dictionary<string, string>();
+            symbolNation.Add("PL", "Poland");
+            symbolNation.Add("JP", "Japan");
+            symbolNation.Add("US", "United States");
+
+            string country = symbolNation.FirstOrDefault(x => x.Key == "PL").Value;
         }
     }
 }
