@@ -3,6 +3,7 @@ using JuniorSkill.LINQ;
 using JuniorSkill.Polymorphism;
 using JuniorSkill.Polymorphism.MethodOverriding;
 using JuniorSkill.Strategy;
+using JuniorSkill.YieldReturn;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,12 +17,15 @@ namespace JuniorSkill
             Console.WriteLine("Hello World!");
             Console.WriteLine();
 
+            //
+            KeyWordYield();
+
             //Lambda
             LambdaExpresionAndLINQ();
 
             //Dependency injection
             Injection();
-            
+
             //Strategy
             Strategy();
             Console.WriteLine();
@@ -31,7 +35,7 @@ namespace JuniorSkill
             Console.WriteLine();
 
             // Word counting
-            Console.WriteLine( SeparateStringBySpace.HowManyWords("") ); 
+            Console.WriteLine(SeparateStringBySpace.HowManyWords(""));
 
             // Inheritance
             FileHandler();
@@ -99,7 +103,7 @@ namespace JuniorSkill
         }
         static public void TryCatch(int a)
         {
-            string[] words = {"Hello ","User. ","How ","are ","You?" };
+            string[] words = { "Hello ", "User. ", "How ", "are ", "You?" };
             try
             {
                 for (int i = 0; i <= a; i++)
@@ -108,13 +112,15 @@ namespace JuniorSkill
                 }
                 Console.WriteLine(words[a + 1]);
             }
-            catch (IndexOutOfRangeException )
+            catch (IndexOutOfRangeException)
             {
                 Console.WriteLine("You went out of range");
-            }catch(Exception )
+            }
+            catch (Exception)
             {
                 Console.WriteLine("Something went wrong");
-            }finally
+            }
+            finally
             {
                 Console.WriteLine();
             }
@@ -123,16 +129,16 @@ namespace JuniorSkill
         {
             Person person1 = new Person("asd", "fgh");
             person1.SayHi();
-            Person person2 = new Person(new DateTime(1996,06,11),"Mateusz", "Muszanski");
+            Person person2 = new Person(new DateTime(1996, 06, 11), "Mateusz", "Muszanski");
             person2.SayHi();
             Console.WriteLine();
             person2.ContactNumber = "736656288";
 
-            Console.WriteLine($"There are {Person.objCount} Objs of type Person"); 
+            Console.WriteLine($"There are {Person.objCount} Objs of type Person");
         }
         public static void FileHandler()
         {
-            ExcelFile excelFile = new ExcelFile("excel_file", 2, new DateTime(2023,02,11));
+            ExcelFile excelFile = new ExcelFile("excel_file", 2, new DateTime(2023, 02, 11));
             excelFile.GenerateReport();
             WordFile wordFile = new WordFile("word_file", 2, new DateTime(2023, 02, 11));
             wordFile.Print();
@@ -168,8 +174,8 @@ namespace JuniorSkill
         }
         public static void Strategy()
         {
-            Paladin paladin = new Paladin(6,5,5,3);
-            Mage mage = new Mage(3,8,4,3);
+            Paladin paladin = new Paladin(6, 5, 5, 3);
+            Mage mage = new Mage(3, 8, 4, 3);
 
             AttackAction attackAction = new AttackAction();
             DefendAction defendAction = new DefendAction();
@@ -219,6 +225,32 @@ namespace JuniorSkill
             {
                 Console.WriteLine($"{item.FirstName} {item.LastName} was born before May 10th, 1996.");
             }
+        }
+        public static void KeyWordYield()
+        {
+            ReturnYield returnYield = new ReturnYield();
+
+            foreach (var item in returnYield.GetByReturn())
+            {
+                Console.WriteLine($"Return element {item}");
+
+                if (item > 1)
+                {
+                    break;
+                }
+            }
+            Console.WriteLine();
+
+            foreach (var item in returnYield.GetByYield())
+            {
+                Console.WriteLine($"Return yield {item}");
+
+                if (item > 1)
+                {
+                    break;
+                }
+            }
+            Console.WriteLine();
         }
     }
 }
