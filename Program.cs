@@ -6,6 +6,7 @@ using JuniorSkill.Strategy;
 using JuniorSkill.YieldReturn;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace JuniorSkill
@@ -17,6 +18,31 @@ namespace JuniorSkill
             Console.WriteLine("Hello World!");
             Console.WriteLine();
 
+            //Recursion
+            int index = 40;
+            var watch = Stopwatch.StartNew();
+            Console.WriteLine(Recursion(index));
+            watch.Stop();
+            Console.WriteLine("Time: " + watch.ElapsedMilliseconds);
+            watch.Reset();
+            //Ref Recursion
+            watch.Start();
+            long result = 0;
+            Console.WriteLine(RefRecursion(index, ref result));
+            watch.Stop();
+            Console.WriteLine("Time: " + watch.ElapsedMilliseconds);
+            //Your recursion
+            result = 0;
+            watch.Reset();
+            watch.Start();
+            for (int i = 0; i < index; i++)
+            {
+                CalculateFibonacci(i, ref result);
+                
+            }
+            Console.WriteLine(result);
+            watch.Stop();
+            Console.WriteLine("Time: " + watch.ElapsedMilliseconds);
             //
             KeyWordYield();
 
@@ -251,6 +277,94 @@ namespace JuniorSkill
                 }
             }
             Console.WriteLine();
+        }
+        public static void RefOut()
+        {
+            void Square(ref int x)
+            {
+                x *= x;
+            }
+            int num = 5;
+            Square(ref num);
+
+            bool TryParse(string s, out int result)
+            {
+                bool parsed = int.TryParse(s, out result);
+                return parsed;
+            }
+
+            string snumber = "123";
+            int outnumb;
+            TryParse(snumber, out outnumb);
+            Console.WriteLine("TryParse: " + outnumb);
+        }
+        public static void OrAnd()
+        {
+            bool Number(int number)
+            {
+                if (number % 2 == 1)
+                {
+                    Console.Write(number);
+                    return true;
+                }
+                return false;
+            }
+
+            if (Number(1) || Number(2) & Number(3) && Number(3) | Number(4))
+            {
+                Number(3);
+            }
+            Console.WriteLine();
+            if (Number(1) | Number(2) & Number(3) && Number(3) || Number(4))
+            {
+                Number(3);
+            }
+            Console.WriteLine();
+            if (Number(1) || Number(2) && Number(3) & Number(3) | Number(4))
+            {
+                Number(3);
+            }
+            Console.WriteLine();
+        }
+        public static long Recursion(int a)
+        {
+            long num = 0;
+            if (a == 0)
+            {
+                return 0;
+            }
+            if (a == 1)
+            {
+                return 1;
+            }
+            if (a > 1)
+            {
+                num = Recursion(a - 1) + Recursion(a - 2);
+            }
+            return num;
+        }
+        public static long RefRecursion(int index, ref long result)
+        {
+            if (index < 2)
+            {
+                return index;
+            }
+            return RefRecursion(index - 1, ref result) + RefRecursion(index - 2, ref result);
+        }
+        static void CalculateFibonacci(int index, ref long result)
+        {
+            if (index < 2)
+            {
+                result = index;
+            }
+            else
+            {
+                long previousFib = 0;
+                RefRecursion(index - 1, ref previousFib);
+                long previousPreviousFib = 0;
+                RefRecursion(index - 2, ref previousPreviousFib);
+                result = previousFib + previousPreviousFib;
+            }
         }
     }
 }

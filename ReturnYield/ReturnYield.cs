@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JuniorSkill.LINQ;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,6 +33,15 @@ namespace JuniorSkill.YieldReturn
                 yield return i;
             }
             Console.WriteLine("End yield");
+        }
+        public IEnumerable<Person> GetPeople()
+        {
+            // do dokończenia
+            var result = Employee.GetPeople();
+            foreach (var item in result)
+            {
+                yield return item;
+            }
         }
     }
 }
