@@ -1,4 +1,5 @@
 ﻿using JuniorSkill.DependencyInjection;
+using JuniorSkill.Exercises;
 using JuniorSkill.LINQ;
 using JuniorSkill.Polymorphism;
 using JuniorSkill.Polymorphism.MethodOverriding;
@@ -15,9 +16,10 @@ namespace JuniorSkill
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            Console.WriteLine();
-
+            OrAnd();
+            char[] tablica = new char[] { '(', ')', ')' };
+            Console.WriteLine(Validation.Validate(tablica)); 
+            #region Recursion
             //Recursion
             int index = 40;
             var watch = Stopwatch.StartNew();
@@ -26,24 +28,14 @@ namespace JuniorSkill
             Console.WriteLine("Time: " + watch.ElapsedMilliseconds);
             watch.Reset();
             //Ref Recursion
-            watch.Start();
             long result = 0;
+            watch.Start();
             Console.WriteLine(RefRecursion(index, ref result));
             watch.Stop();
             Console.WriteLine("Time: " + watch.ElapsedMilliseconds);
-            //Your recursion
-            result = 0;
-            watch.Reset();
-            watch.Start();
-            for (int i = 0; i < index; i++)
-            {
-                CalculateFibonacci(i, ref result);
-                
-            }
-            Console.WriteLine(result);
-            watch.Stop();
-            Console.WriteLine("Time: " + watch.ElapsedMilliseconds);
+            #endregion
             //
+
             KeyWordYield();
 
             //Lambda
@@ -84,8 +76,7 @@ namespace JuniorSkill
             CastingAndConvertion castingAndConvertion = new CastingAndConvertion(); // dynamic
             //Enum
             ShowEnum();
-
-            //
+             
         }
         static public void StaticClassStrings()
         {
@@ -206,8 +197,13 @@ namespace JuniorSkill
             AttackAction attackAction = new AttackAction();
             DefendAction defendAction = new DefendAction();
 
+            //BETTER WAY TO THIS
+            // IAction action = new AttackAction();
+
             Combat combat = new Combat(attackAction);
             combat.DoAction(paladin);
+
+            // action = new DefendAction();
 
             combat = new Combat(defendAction);
             combat.DoAction(mage);
@@ -233,6 +229,7 @@ namespace JuniorSkill
             symbolNation.Add("US", "United States");
 
             string country = symbolNation.FirstOrDefault(x => x.Key == "PL").Value;
+            string symbol = symbolNation.FirstOrDefault(y => y.Value == "Japan").Key;
             Console.WriteLine(country);
 
             List<Person> people = Employee.GetPeople();
@@ -351,20 +348,6 @@ namespace JuniorSkill
             }
             return RefRecursion(index - 1, ref result) + RefRecursion(index - 2, ref result);
         }
-        static void CalculateFibonacci(int index, ref long result)
-        {
-            if (index < 2)
-            {
-                result = index;
-            }
-            else
-            {
-                long previousFib = 0;
-                RefRecursion(index - 1, ref previousFib);
-                long previousPreviousFib = 0;
-                RefRecursion(index - 2, ref previousPreviousFib);
-                result = previousFib + previousPreviousFib;
-            }
-        }
+        
     }
 }
